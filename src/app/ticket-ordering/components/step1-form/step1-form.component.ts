@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TicketOrdering } from '../../ticket-ordering.model';
 
 @Component({
   selector: 'app-step1-form',
@@ -8,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class Step1FormComponent {
   form: FormGroup;
+  @Input() formData: TicketOrdering = new TicketOrdering();
   @Output() submit = new EventEmitter<any>();
   @Output() back = new EventEmitter<void>();
 
@@ -36,6 +38,20 @@ export class Step1FormComponent {
         ],
       ],
     });
+  }
+
+  ngOnChanges() {
+    this.patchValue();
+  }
+
+  patchValue(): void {
+     if (this.formData) {
+      this.form.patchValue({
+        firstName: this.formData.firstName,
+        lastName: this.formData.lastName,
+        age: this.formData.age,
+      });
+    }
   }
 
   get firstName() {

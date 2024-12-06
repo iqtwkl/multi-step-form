@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TicketOrdering } from '../../ticket-ordering.model';
 
 @Component({
   selector: 'app-main-form',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainFormComponent {
   currentStep = 1;
-  formData: any = {};
+  formData: TicketOrdering = new TicketOrdering();
 
-  goToNextStep(stepData: any) {
+  goToNextStep(stepData: Partial<TicketOrdering>) {
     this.formData = { ...this.formData, ...stepData };
     this.currentStep++;
   }

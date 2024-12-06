@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TicketOrdering } from '../../ticket-ordering.model';
 
 @Component({
   selector: 'app-step3-form',
@@ -9,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class Step3FormComponent {
   @Output() submit = new EventEmitter<any>();
   @Output() back = new EventEmitter<void>();
+  @Input() formData: TicketOrdering = new TicketOrdering();
   form: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -17,6 +19,20 @@ export class Step3FormComponent {
       food: ['', Validators.required],
       allergies: ['', Validators.required],
     });
+  }
+
+  ngOnChanges() {
+    this.patchValue();
+  }
+
+  patchValue(): void {
+    if (this.formData) {
+      this.form.patchValue({
+        seat: this.formData.seat,
+        food: this.formData.food,
+        allergies: this.formData.allergies,
+      });
+    }
   }
 
   get seat() {

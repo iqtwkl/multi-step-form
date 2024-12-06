@@ -1,11 +1,11 @@
 <div *ngIf="currentStep === 1">
-    <app-step1-form (submit)="goToNextStep($event)"></app-step1-form>
+    <app-step1-form [formData]="formData" (submit)="goToNextStep($event)"></app-step1-form>
 </div>
 <div *ngIf="currentStep === 2">
-    <app-step2-form (submit)="goToNextStep($event)" (back)="goToPreviousStep()"></app-step2-form>
+    <app-step2-form [formData]="formData" (submit)="goToNextStep($event)" (back)="goToPreviousStep()"></app-step2-form>
 </div>
 <div *ngIf="currentStep === 3">
-    <app-step3-form (submit)="goToNextStep($event)" (back)="goToPreviousStep()"></app-step3-form>
+    <app-step3-form [formData]="formData" (submit)="goToNextStep($event)" (back)="goToPreviousStep()"></app-step3-form>
 </div>
 <div *ngIf="currentStep === 4">
     <app-results [formData]="formData" (back)="goToPreviousStep()"></app-results>
