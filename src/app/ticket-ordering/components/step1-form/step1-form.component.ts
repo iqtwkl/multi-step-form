@@ -72,6 +72,7 @@ export class Step1FormComponent {
       this.submit.emit(this.form.value);
     } else {
       console.log('Form is invalid');
+      this.form.markAllAsTouched();
     }
   }
 
