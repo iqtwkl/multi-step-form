@@ -12,6 +12,7 @@ export class Step1FormComponent {
   @Input() formData: TicketOrdering = new TicketOrdering();
   @Output() submit = new EventEmitter<any>();
   @Output() back = new EventEmitter<void>();
+  @Output() isFormValid = new EventEmitter<boolean>();
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -67,14 +68,17 @@ export class Step1FormComponent {
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      console.log('Form Submitted Successfully:', this.form.value);
+    const isValid = this.form.valid;
+    if (isValid) {
       this.submit.emit(this.form.value);
     } else {
-      console.log('Form is invalid');
-      this.form.markAllAsTouched();
+      this.form.markAllAsTouched(); // Memastikan semua field yang invalid ditandai
     }
+  
+    // Emit event isFormValid
+    this.isFormValid.emit(isValid);
   }
+  
 
   onBack() {
     this.back.emit();

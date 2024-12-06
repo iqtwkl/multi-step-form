@@ -10,6 +10,7 @@ import { TicketOrdering } from '../../ticket-ordering.model';
 export class Step3FormComponent {
   @Output() submit = new EventEmitter<any>();
   @Output() back = new EventEmitter<void>();
+  @Output() isFormValid = new EventEmitter<boolean>();
   @Input() formData: TicketOrdering = new TicketOrdering();
   form: FormGroup;
 
@@ -51,8 +52,11 @@ export class Step3FormComponent {
     if (this.form.valid) {
       console.log('Form Submitted Successfully:', this.form.value);
       this.submit.emit(this.form.value);
+      this.isFormValid.emit(true);
     } else {
       console.log('Form is invalid');
+      this.form.markAllAsTouched();
+      this.isFormValid.emit(false);
     }
   }
 

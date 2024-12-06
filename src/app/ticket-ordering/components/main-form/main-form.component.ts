@@ -9,10 +9,17 @@ import { TicketOrdering } from '../../ticket-ordering.model';
 export class MainFormComponent {
   currentStep = 1;
   formData: TicketOrdering = new TicketOrdering();
+  isFormValid: boolean = false;
 
   goToNextStep(stepData: Partial<TicketOrdering>) {
     this.formData = { ...this.formData, ...stepData };
-    this.currentStep++;
+    if(this.isFormValid) {
+      this.currentStep++;
+    }
+  }
+
+  handleFormValidation(isValid: boolean) {
+    this.isFormValid = isValid;
   }
 
   goToPreviousStep() {
