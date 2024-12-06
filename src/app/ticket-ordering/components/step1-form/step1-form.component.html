@@ -1,0 +1,67 @@
+<div class="w-full max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
+  <h2 class="text-2xl font-bold text-center mb-6">Step 1</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- First Name -->
+    <div class="mb-4">
+      <label for="firstName" class="block text-sm font-medium text-gray-700">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        formControlName="firstName"
+        class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      />
+      <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="text-red-500 text-sm">
+        <p *ngIf="firstName?.errors?.['required']">First name is a required field</p>
+        <p *ngIf="firstName?.errors?.['pattern']">First name should not contain numbers</p>
+      </div>
+    </div>
+
+    <!-- Last Name -->
+    <div class="mb-4">
+      <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        formControlName="lastName"
+        class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      />
+      <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="text-red-500 text-sm">
+        <p *ngIf="lastName?.errors?.['required']">Last name is a required field</p>
+        <p *ngIf="lastName?.errors?.['pattern']">Last name should not contain numbers</p>
+      </div>
+    </div>
+
+    <!-- Age -->
+    <div class="mb-4">
+      <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+      <input
+        type="number"
+        id="age"
+        formControlName="age"
+        class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      />
+      <div *ngIf="age?.invalid && (age?.dirty || age?.touched)" class="text-red-500 text-sm">
+        <p *ngIf="age?.errors?.['required']">Age must be a number</p>
+        <p *ngIf="age?.errors?.['pattern']">Age must be a number</p>
+        <p *ngIf="age?.errors?.['min']">Age should be positive</p>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex justify-between items-center">
+      <button
+        type="button"
+        class="py-2 px-4 bg-gray-300 hover:bg-gray-400 text-black font-medium rounded-md"
+      >
+        Back
+      </button>
+      <button
+        type="submit"
+        class="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md"
+        [disabled]="form.invalid"
+      >
+        Next
+      </button>
+    </div>
+  </form>
+</div>
