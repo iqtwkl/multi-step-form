@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-results',
@@ -9,10 +8,10 @@ import { Router } from '@angular/router';
 export class ResultsComponent {
 
   @Input() formData: any;
-  @Input() onBack: () => void = () => {
-    this.router.navigate(['/ticket-ordering/step-3'])
-  };
+  @Output() back = new EventEmitter<void>();
 
-  constructor(private router: Router) {}
+  onBack() {
+    this.back.emit();
+  }
 
 }

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-step2-form',
@@ -8,10 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./step2-form.component.css']
 })
 export class Step2FormComponent {
-
+  @Output() submit = new EventEmitter<any>();
+  @Output() back = new EventEmitter<void>();
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       email: [
         '',
@@ -40,14 +40,14 @@ export class Step2FormComponent {
   onSubmit() {
     if (this.form.valid) {
       console.log('Form Submitted Successfully:', this.form.value);
-      this.router.navigate(['/ticket-ordering/step-3']);
+      this.submit.emit(this.form.value);
     } else {
       console.log('Form is invalid');
     }
   }
 
   onBack() {
-    this.router.navigate(['/ticket-ordering/step-1']);
+    this.back.emit();
   }
 
 }

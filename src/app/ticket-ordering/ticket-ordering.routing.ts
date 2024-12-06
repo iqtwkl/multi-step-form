@@ -4,6 +4,7 @@ import { Step1FormComponent } from './components/step1-form/step1-form.component
 import { Step2FormComponent } from './components/step2-form/step2-form.component';
 import { Step3FormComponent } from './components/step3-form/step3-form.component';
 import { ResultsComponent } from './components/results/results.component';
+import { MainFormComponent } from './components/main-form/main-form.component';
 
 const routes: Routes = [
     {
@@ -21,6 +22,10 @@ const routes: Routes = [
     {
         path: "results",
         component: ResultsComponent
+    },
+    {
+        path: "add",
+        component: MainFormComponent
     }
 ];
 
