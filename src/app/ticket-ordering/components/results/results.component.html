@@ -1,0 +1,37 @@
+<div class="w-full max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
+    <h2 class="text-2xl font-bold text-center mb-6">Results</h2>
+
+    <!-- Form Data Display -->
+    <div class="space-y-4">
+        <!-- Step 1 -->
+        <div>
+            <h3 class="text-lg font-semibold">Step 1</h3>
+            <div data-testid="firstName" class="text-gray-700">First Name: {{ formData.firstName }}</div>
+            <div data-testid="lastName" class="text-gray-700">Last Name: {{ formData.lastName }}</div>
+            <div data-testid="age" class="text-gray-700">Age: {{ formData.age }}</div>
+        </div>
+
+        <!-- Step 2 -->
+        <div>
+            <h3 class="text-lg font-semibold">Step 2</h3>
+            <div data-testid="email" class="text-gray-700">Email: {{ formData.email }}</div>
+            <div data-testid="phone" class="text-gray-700">Phone: {{ formData.phone }}</div>
+        </div>
+
+        <!-- Step 3 -->
+        <div>
+            <h3 class="text-lg font-semibold">Step 3</h3>
+            <div data-testid="seat" class="text-gray-700">Seat: {{ formData.seat }}</div>
+            <div data-testid="food" class="text-gray-700">Food: {{ formData.food }}</div>
+            <div data-testid="allergies" class="text-gray-700">Allergies: {{ formData.allergies }}</div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="mt-6 flex justify-center">
+        <button data-testid="back" type="button"
+            class="py-2 px-4 bg-gray-300 hover:bg-gray-400 text-black font-medium rounded-md" (click)="onBack()">
+            Back
+        </button>
+    </div>
+</div>

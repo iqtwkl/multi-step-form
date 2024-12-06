@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Step1FormComponent } from './components/step1-form/step1-form.component';
 import { Step2FormComponent } from './components/step2-form/step2-form.component';
 import { Step3FormComponent } from './components/step3-form/step3-form.component';
+import { ResultsComponent } from './components/results/results.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,10 @@ const routes: Routes = [
         path: "step-3",
         component: Step3FormComponent
     },
+    {
+        path: "results",
+        component: ResultsComponent
+    }
 ];
 
 @NgModule({

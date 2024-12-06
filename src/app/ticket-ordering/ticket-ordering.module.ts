@@ -5,6 +5,7 @@ import { Step2FormComponent } from './components/step2-form/step2-form.component
 import { Step3FormComponent } from './components/step3-form/step3-form.component';
 import { TicketOrderingRoutingModule } from './ticket-ordering.routing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ResultsComponent } from './components/results/results.component';
 
 
 
@@ -12,7 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     Step1FormComponent,
     Step2FormComponent,
-    Step3FormComponent
+    Step3FormComponent,
+    ResultsComponent
   ],
   imports: [
     CommonModule,
