@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-step1-form',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class Step1FormComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
       firstName: [
         '',
@@ -50,7 +51,8 @@ export class Step1FormComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log('Form Submitted:', this.form.value);
+      console.log('Form Submitted Successfully:', this.form.value);
+      this.router.navigate(['/ticket-ordering/step-2']);
     } else {
       console.log('Form is invalid');
     }
