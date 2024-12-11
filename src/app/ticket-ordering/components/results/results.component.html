@@ -1,0 +1,37 @@
+<div class="w-full max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
+    <h2 class="text-2xl font-bold text-center mb-6" data-testid="title">Results</h2>
+
+    <!-- Form Data Display -->
+    <div class="space-y-4">
+        <!-- Step 1 -->
+        <div>
+            <h3 class="text-lg font-semibold">Step 1</h3>
+            <div class="text-gray-700">First Name: <span data-testid="firstName">{{ formData.firstName }}</span></div>
+            <div class="text-gray-700">Last Name: <span data-testid="lastName">{{ formData.lastName }}</span></div>
+            <div class="text-gray-700">Age: <span data-testid="age">{{ formData.age }}</span></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div>
+            <h3 class="text-lg font-semibold">Step 2</h3>
+            <div class="text-gray-700">Email: <span data-testid="email">{{ formData.email }}</span></div>
+            <div class="text-gray-700">Phone: <span data-testid="phone">{{ formData.phone }}</span></div>
+        </div>
+
+        <!-- Step 3 -->
+        <div>
+            <h3 class="text-lg font-semibold">Step 3</h3>
+            <div class="text-gray-700">Seat: <span data-testid="seat">{{ formData.seat }}</span></div>
+            <div class="text-gray-700">Food: <span data-testid="food">{{ formData.food }}</span></div>
+            <div class="text-gray-700">Allergies: <span data-testid="allergies">{{ formData.allergies }}</span></div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="mt-6 flex justify-center">
+        <button data-testid="back" type="button"
+            class="py-2 px-4 bg-gray-300 hover:bg-gray-400 text-black font-medium rounded-md" (click)="onBack()">
+            Back
+        </button>
+    </div>
+</div>

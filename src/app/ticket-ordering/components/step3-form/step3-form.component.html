@@ -1,0 +1,46 @@
+<div class="w-full max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
+    <h2 class="text-2xl font-bold text-center mb-6" data-testid="title">Step 3</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Seat -->
+        <div class="mb-4">
+            <label for="seat" class="block text-sm font-medium text-gray-700">Seat</label>
+            <input id="seat" data-testid="seat" formControlName="seat" type="text"
+                class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+            <div *ngIf="seat?.invalid && (seat?.dirty || seat?.touched)" class="text-red-500 text-sm">
+                <p *ngIf="seat?.errors?.['required']">Seat is a required field</p>
+            </div>
+        </div>
+
+        <!-- Food -->
+        <div class="mb-4">
+            <label for="food" class="block text-sm font-medium text-gray-700">Food</label>
+            <input id="food" data-testid="food" formControlName="food" type="text"
+                class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+            <div *ngIf="food?.invalid && (food?.dirty || food?.touched)" class="text-red-500 text-sm">
+                <p *ngIf="food?.errors?.['required']">Food is a required field</p>
+            </div>
+        </div>
+
+        <!-- Allergies -->
+        <div class="mb-4">
+            <label for="allergies" class="block text-sm font-medium text-gray-700">Allergies</label>
+            <input id="allergies" data-testid="allergies" formControlName="allergies" type="text"
+                class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+            <div *ngIf="allergies?.invalid && (allergies?.dirty || allergies?.touched)" class="text-red-500 text-sm">
+                <p *ngIf="allergies?.errors?.['required']">Allergies is a required field</p>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between items-center">
+            <button type="button" data-testid="back"
+                class="py-2 px-4 bg-gray-300 hover:bg-gray-400 text-black font-medium rounded-md" (click)="onBack()">
+                Back
+            </button>
+            <button type="submit" data-testid="submit"
+                class="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">
+                Next
+            </button>
+        </div>
+    </form>
+</div>
